@@ -1,0 +1,21 @@
+%h1 Listing logs
+
+%table
+  %tr
+    %th Notes
+    %th Time minutes
+    %th Date
+    %th
+    %th
+
+  - @logs.each do |log|
+    %tr
+      %td= log.notes
+      %td= log.time_minutes
+      %td= log.log_date
+      %td= link_to 'Show', log
+      %td= link_to 'Edit', edit_log_path(log)
+
+%br
+
+= link_to 'New Log', new_task_log_path

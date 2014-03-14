@@ -4,6 +4,9 @@
 %p
   %b Estimated minutes:
   = @task.estimated_minutes
+%p
+  %b Minutes logged:
+  = @task.minutes_logged
 
 = link_to 'Edit', edit_task_path(@task)
 \|

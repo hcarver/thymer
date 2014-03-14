@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Notes:
+  = @log.notes
+%p
+  %b Task:
+  = @log.task_id
+%p
+  %b Time minutes:
+  = @log.time_minutes
+%p
+  %b Date:
+  = @log.log_date.to_s
+
+= link_to 'Edit', edit_log_path(@log)
+\|
+= link_to 'Back', task_logs_path(@log.task)

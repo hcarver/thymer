@@ -3,6 +3,7 @@
 %table
   %tr
     %th Name
+    %th Spent minutes
     %th Estimated minutes
     %th
     %th
@@ -11,8 +12,9 @@
   - @tasks.each do |task|
     %tr
       %td= task.name
+      %td= task.minutes_logged
       %td= task.estimated_minutes
-      %td= link_to 'Show', task
+      %td= link_to 'Show logs', task_logs_path(task)
       %td= link_to 'Edit', edit_task_path(task)
       %td= link_to 'Destroy', task, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
