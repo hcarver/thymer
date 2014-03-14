@@ -50,3 +50,4 @@ gem "therubyracer"
 gem "less-rails" 
 gem "twitter-bootstrap-rails"
 gem 'haml-rails'
+gem 'friendly_id', '~> 5.0.0'
