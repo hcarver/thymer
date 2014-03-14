@@ -1,5 +1,7 @@
 Timr::Application.routes.draw do
-  resources :clients
+  resources :clients do
+    resources :projects, shallow: true
+  end
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
