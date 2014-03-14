@@ -1,6 +1,10 @@
 Timr::Application.routes.draw do
+
+
   resources :clients do
-    resources :projects, shallow: true
+    resources :projects, shallow: true do
+      resources :tasks
+    end
   end
 
   devise_for :users

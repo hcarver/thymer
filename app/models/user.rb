@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
 
   has_many :clients
   has_many :projects, through: :clients
+  has_many :tasks, through: :projects
 end

@@ -1,0 +1,10 @@
+%p
+  %b Name:
+  = @task.name
+%p
+  %b Estimated minutes:
+  = @task.estimated_minutes
+
+= link_to 'Edit', edit_task_path(@task)
+\|
+= link_to 'Back', project_tasks_path(@task.project)

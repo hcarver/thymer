@@ -1,7 +1,7 @@
 %h1 Editing project
 
 = form_for @project do |f|
-  = render 'form'
+  = render partial: 'form', locals: {f: f}
 
 = link_to 'Show', @project
 \|

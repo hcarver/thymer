@@ -1,0 +1,8 @@
+%h1 Editing task
+
+= form_for @task do |f|
+  = render partial: 'form', locals: {f: f}
+
+= link_to 'Show', @task
+\|
+= link_to 'Back', project_tasks_path(@task.project)
