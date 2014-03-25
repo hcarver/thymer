@@ -1,7 +1,34 @@
-%p
-  %b Name:
-  = @project.name
+%h1
+  Listing tasks for
+  =@project.name
+  (
+  =link_to @project.client.name, client_path(@project.client)
+  )
 
+%table.table
+  %tr
+    %th Name
+    %th Spent minutes
+    %th Estimated minutes
+    %th
+    %th
+    %th
+
+  - @project.tasks.each do |task|
+    %tr
+      %td= task.name
+      %td= task.minutes_logged
+      %td= task.estimated_minutes
+      %td= link_to 'Show logs', task_logs_path(task)
+      %td= link_to 'Edit', edit_task_path(task)
+      %td= link_to 'Destroy', task, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Task', new_project_task_path(@project)
+\|
 = link_to 'Edit', edit_project_path(@project)
 \|
-= link_to 'Back', client_projects_path(@project.client)
+= link_to 'Back', client_path(@project.client)
+
+

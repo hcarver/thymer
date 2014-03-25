@@ -1,6 +1,7 @@
-%p
-  %b Name:
-  = @task.name
+%h1
+  Listing logs for
+  =@task.name
+
 %p
   %b Estimated minutes:
   = @task.estimated_minutes
@@ -8,6 +9,26 @@
   %b Minutes logged:
   = @task.minutes_logged
 
+%table.table
+  %tr
+    %th Notes
+    %th Time minutes
+    %th Date
+    %th
+    %th
+
+  - @task.logs.each do |log|
+    %tr
+      %td= log.notes
+      %td= log.time_minutes
+      %td= log.log_date
+      %td= link_to 'Show', log
+      %td= link_to 'Edit', edit_log_path(log)
+
+%br
+
+= link_to 'New Log', new_task_log_path(@task)
+
 = link_to 'Edit', edit_task_path(@task)
 \|
-= link_to 'Back', project_tasks_path(@task.project)
+= link_to 'Back', project_path(@task.project)

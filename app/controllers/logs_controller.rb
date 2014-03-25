@@ -2,12 +2,6 @@ class LogsController < ApplicationController
   before_action :set_task, only: [:index, :new, :create]
   before_action :set_log, only: [:show, :edit, :update, :destroy]
 
-  # GET /logs
-  # GET /logs.json
-  def index
-    @logs = @task.logs.all
-  end
-
   # GET /logs/1
   # GET /logs/1.json
   def show

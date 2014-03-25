@@ -1,8 +1,8 @@
 Timr::Application.routes.draw do
   resources :clients do
-    resources :projects, shallow: true do
-      resources :tasks do
-        resources :logs
+    resources :projects, shallow: true, except: [:index] do
+      resources :tasks, except: [:index] do
+        resources :logs, except: [:index]
       end
     end
   end

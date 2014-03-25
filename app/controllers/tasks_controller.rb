@@ -2,12 +2,6 @@ class TasksController < ApplicationController
   before_action :set_project, only: [:index, :new, :create]
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
-  # GET /tasks
-  # GET /tasks.json
-  def index
-    @tasks = @project.tasks.all
-  end
-
   # GET /tasks/1
   # GET /tasks/1.json
   def show
