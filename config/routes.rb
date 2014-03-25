@@ -4,6 +4,7 @@ Timr::Application.routes.draw do
       resources :tasks, except: [:index] do
         resources :logs, except: [:index]
       end
+      resources :outsourced_tasks, except: [:index]
     end
   end
 

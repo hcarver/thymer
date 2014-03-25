@@ -1,0 +1,21 @@
+- if @outsourced_task.errors.any?
+  #error_explanation
+    %h2= "#{pluralize(@outsourced_task.errors.count, "error")} prohibited this outsourced_task from being saved:"
+    %ul
+      - @outsourced_task.errors.full_messages.each do |msg|
+        %li= msg
+
+.field
+  = f.label :name
+  = f.text_field :name
+.field
+  = f.label :estimated_cost
+  = f.number_field :estimated_cost
+.field
+  = f.label :actual_cost
+  = f.number_field :actual_cost
+.field
+  = f.label :charged_to_client
+  = f.number_field :charged_to_client
+.actions
+  = f.submit 'Save'

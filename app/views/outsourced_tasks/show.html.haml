@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @outsourced_task.name
+%p
+  %b Estimated cost:
+  = @outsourced_task.estimated_cost
+%p
+  %b Actual costs:
+  = @outsourced_task.actual_cost
+%p
+  %b Charged to client:
+  = @outsourced_task.charged_to_client
+
+= link_to 'Edit', edit_outsourced_task_path(@outsourced_task)
+\|
+= link_to 'Back', project_path(@outsourced_task.project)

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140314130630) do
+ActiveRecord::Schema.define(version: 20140325104432) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,20 @@ ActiveRecord::Schema.define(version: 20140314130630) do
   end
 
   add_index "logs", ["task_id"], name: "index_logs_on_task_id", using: :btree
+
+  create_table "outsourced_tasks", force: true do |t|
+    t.string   "name"
+    t.integer  "project_id"
+    t.string   "slug"
+    t.integer  "estimated_cost_pennies",    default: 0, null: false
+    t.integer  "actual_cost_pennies"
+    t.integer  "charged_to_client_pennies", default: 0, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "outsourced_tasks", ["project_id", "name"], name: "index_outsourced_tasks_on_project_id_and_name", unique: true, using: :btree
+  add_index "outsourced_tasks", ["slug"], name: "index_outsourced_tasks_on_slug", unique: true, using: :btree
 
   create_table "projects", force: true do |t|
     t.string   "name"

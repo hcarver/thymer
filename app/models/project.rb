@@ -5,6 +5,7 @@ class Project < ActiveRecord::Base
 
   belongs_to :client
   has_many :tasks
+  has_many :outsourced_tasks
 
   validates :name, presence: true, uniqueness: {scope: :client}
   validates :client, presence: true

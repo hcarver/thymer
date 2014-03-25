@@ -1,9 +1,10 @@
 %h1
-  Listing tasks for
   =@project.name
   (
   =link_to @project.client.name, client_path(@project.client)
   )
+
+%h3 Tasks
 
 %table.table
   %tr
@@ -23,9 +24,32 @@
       %td= link_to 'Edit', edit_task_path(task)
       %td= link_to 'Destroy', task, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-%br
+
+%h3 Outsourced tasks
+
+%table.table
+  %tr
+    %th Name
+    %th Estimated cost (actual cost)
+    %th Charged-out cost
+    %th
+    %th
+
+  - @project.outsourced_tasks.each do |task|
+    %tr
+      %td= task.name
+      %td
+        = task.estimated_cost
+        -if task.actual_cost
+          ="(#{task.actual_cost})"
+      %td= task.charged_to_client
+      %td= link_to 'Edit', edit_outsourced_task_path(task)
+      %td= link_to 'Destroy', task, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
 
 = link_to 'New Task', new_project_task_path(@project)
+\|
+= link_to 'New Outsourced Task', new_project_outsourced_task_path(@project)
 \|
 = link_to 'Edit', edit_project_path(@project)
 \|
