@@ -1,16 +1,9 @@
 %h1 Listing clients
 
 %table.table
-  %tr
-    %th Name
-    %th
-    %th
-    %th
-
   - @clients.each do |client|
     %tr
-      %td= client.name
-      %td= link_to 'Show', client_path(client)
+      %td= link_to client.name, client_path(client), class: 'client'
       %td= link_to 'Edit', edit_client_path(client)
       %td= link_to 'Destroy', client, :method => :delete, :data => { :confirm => 'Are you sure?' }
 

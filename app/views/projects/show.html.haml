@@ -1,7 +1,7 @@
 %h1
-  =@project.name
+  %span.project=@project.name
   (
-  =link_to @project.client.name, client_path(@project.client)
+  %span.client=link_to @project.client.name, client_path(@project.client)
   )
 
 %h3 Tasks
@@ -17,13 +17,14 @@
 
   - @project.tasks.each do |task|
     %tr
-      %td= task.name
+      %td.task= task.name
       %td= task.minutes_logged
       %td= task.estimated_minutes
-      %td= link_to 'Show logs', task_logs_path(task)
+      %td= link_to 'Show logs', task_path(task)
       %td= link_to 'Edit', edit_task_path(task)
       %td= link_to 'Destroy', task, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
+=link_to 'Add Task', new_project_task_path(@project), class: 'btn'
 
 %h3 Outsourced tasks
 
@@ -37,7 +38,7 @@
 
   - @project.outsourced_tasks.each do |task|
     %tr
-      %td= task.name
+      %td.task= task.name
       %td
         = task.estimated_cost
         -if task.actual_cost
@@ -46,10 +47,7 @@
       %td= link_to 'Edit', edit_outsourced_task_path(task)
       %td= link_to 'Destroy', task, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-
-= link_to 'New Task', new_project_task_path(@project)
-\|
-= link_to 'New Outsourced Task', new_project_outsourced_task_path(@project)
+= link_to 'Add Outsourced Task', new_project_outsourced_task_path(@project), class: 'btn'
 \|
 = link_to 'Edit', edit_project_path(@project)
 \|

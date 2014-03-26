@@ -1,6 +1,6 @@
 %h1
   Listing projects for
-  =@client.name
+  %span.client=@client.name
 
 %table.table
   %tr
@@ -10,7 +10,7 @@
 
   - @client.projects.each do |project|
     %tr
-      %td= project.name
+      %td.project= project.name
       %td= link_to 'Show', project_path(project)
       %td= link_to 'Edit', edit_project_path(project)
 %br
