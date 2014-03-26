@@ -12,8 +12,8 @@ Total estimate:
 %table.table
   %tr
     %th Name
-    %th Spent minutes
-    %th Estimated minutes
+    %th Spent time
+    %th Estimated time
     %th
     %th
     %th
@@ -21,8 +21,8 @@ Total estimate:
   - @project.tasks.each do |task|
     %tr
       %td.task= task.name
-      %td= task.minutes_logged
-      %td= task.estimated_minutes
+      %td= time_diff_in_natural_language task.minutes_logged.minutes
+      %td= time_diff_in_natural_language task.estimated_minutes.minutes
       %td= link_to 'Show logs', task_path(task)
       %td= link_to 'Edit', edit_task_path(task)
       %td= link_to 'Destroy', task, :method => :delete, :data => { :confirm => 'Are you sure?' }
@@ -52,8 +52,8 @@ Total estimate:
 
 = link_to 'Add Outsourced Task', new_project_outsourced_task_path(@project), class: 'btn'
 \|
-= link_to 'Edit', edit_project_path(@project)
+= link_to 'Edit Project', edit_project_path(@project)
 \|
-= link_to 'Back', client_path(@project.client)
+= link_to "Back to #{@project.client.name}", client_path(@project.client)
 
 
