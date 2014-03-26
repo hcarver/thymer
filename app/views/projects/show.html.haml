@@ -4,6 +4,9 @@
   %span.client=link_to @project.client.name, client_path(@project.client)
   )
 
+Total estimate:
+%strong= time_diff_in_natural_language(@project.total_estimate)
+
 %h3 Tasks
 
 %table.table

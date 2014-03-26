@@ -12,6 +12,10 @@ class Project < ActiveRecord::Base
 
   friendly_id :name, use: :slugged
 
+  def total_estimate
+    self.tasks.map {|x| x.estimated_minutes}.sum.minutes
+  end
+
   def has_tasks?
     return (not self.tasks.empty?)
   end
