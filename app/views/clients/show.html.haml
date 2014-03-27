@@ -6,12 +6,11 @@
   %tr
     %th Name
     %th
-    %th
 
   - @client.projects.each do |project|
     %tr
-      %td.project= project.name
-      %td= link_to 'Show', project_path(project)
+      %td
+        %a.project{href: project_path(project)}= project.name
       %td= link_to 'Edit', edit_project_path(project)
 %br
 
