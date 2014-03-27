@@ -1,4 +1,4 @@
-Timr::Application.routes.draw do
+Thymer::Application.routes.draw do
   resources :clients do
     resources :projects, shallow: true, except: [:index] do
       resources :tasks, except: [:index] do

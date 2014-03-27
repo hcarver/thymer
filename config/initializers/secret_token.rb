@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Timr::Application.config.secret_key_base = 'dec42834eb4d5c7ff8dc71c190e8cfaf654ee7f30887211339b149591e8649dca29dcdc8d4f03868876bfb24be62de57cb082096fcc7956f4916cb70341a13fc'
+Thymer::Application.config.secret_key_base = 'dec42834eb4d5c7ff8dc71c190e8cfaf654ee7f30887211339b149591e8649dca29dcdc8d4f03868876bfb24be62de57cb082096fcc7956f4916cb70341a13fc'

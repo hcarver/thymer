@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Timr::Application.load_tasks
+Thymer::Application.load_tasks
