@@ -18,4 +18,8 @@ class Client < ActiveRecord::Base
   def create_default_project
     self.projects << Project.new(name: "Phase 1")
   end
+
+  def should_generate_new_friendly_id?
+    name_changed?
+  end
 end

@@ -23,4 +23,8 @@ class Project < ActiveRecord::Base
   def create_default_task
     self.tasks << Task.new(name: "Initial work")
   end
+
+  def should_generate_new_friendly_id?
+    name_changed?
+  end
 end
