@@ -1,6 +1,6 @@
 module ApplicationHelper
 
-  HOURS_PER_DAY=7
+  HOURS_PER_DAY=7.5
 
   def time_diff_in_natural_language(time_seconds)
     distance_in_seconds = time_seconds.round
