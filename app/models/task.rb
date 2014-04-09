@@ -1,6 +1,8 @@
 class Task < ActiveRecord::Base
   extend FriendlyId
 
+  scope :incomplete, where(completed: false)
+
   belongs_to :project
   has_many :logs
 

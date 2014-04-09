@@ -31,7 +31,7 @@
 
   - @project.tasks.each do |task|
     %tr
-      %td.task= task.name
+      %td.task{class: (task.completed ? 'completed' : '')}= task.name
       %td= time_diff_in_natural_language task.minutes_logged.minutes
       %td= time_diff_in_natural_language (task.estimated_minutes || 0).minutes
       %td= link_to 'Show logs', task_path(task)
