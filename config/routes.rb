@@ -14,6 +14,8 @@ Thymer::Application.routes.draw do
     root 'devise/sessions#new'
   end
 
+  post 'logs' => 'logs#easy_create'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

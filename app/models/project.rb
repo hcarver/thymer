@@ -12,6 +12,10 @@ class Project < ActiveRecord::Base
 
   friendly_id :name, use: :slugged
 
+  def quote_estimate
+    (((total_estimate || 0) / (60*60*7.5)) * (rate || 0)).to_money
+  end
+
   def total_estimate
     self.tasks.map {|x| x.estimated_minutes}.sum.minutes
   end

@@ -16,6 +16,11 @@ class LogsController < ApplicationController
   def edit
   end
 
+  def easy_create
+    @task = current_user.tasks.find(params[:log][:task_id])
+    create
+  end
+
   # POST /logs
   # POST /logs.json
   def create

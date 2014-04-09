@@ -1,11 +1,12 @@
 %p#notice= notice
 
+%h1
+  Time logged for
+  %span.task= @log.task.name
+
 %p
   %b Notes:
   = @log.notes
-%p
-  %b Task:
-  = @log.task_id
 %p
   %b Time minutes:
   = @log.time_minutes

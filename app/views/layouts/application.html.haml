@@ -26,15 +26,16 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.brand(href="#") Thymer
-          .container.nav-collapse
-            %ul.nav
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "Link 3", "/path3"
-
+          %a.brand(href="/") Thymer
+          .container
+            %div(style="margin-top: 5px;")
+              =form_for Log.new, html: {class: 'form-inline', style: 'margin-bottom: 5px;'} do |f|
+                = f.select :task_id, current_user.tasks.all.collect{|task| ["#{task.project.client.name}->#{task.project.name}->#{task.name}"  , task.id]}
+                = f.text_field :notes, placeholder: 'Notes'
+                = f.date_select :log_date, {}, {class: 'input-small'}
+                = f.number_field :time_minutes, placeholder: 'Minutes', class: 'input-small'
+                = f.submit 'Log', class: 'btn'
     .container
-
       .row
         .span9
           = bootstrap_flash
@@ -47,6 +48,6 @@
               %li= link_to "Link 1", "/path1"
               %li= link_to "Link 2", "/path2"
               %li= link_to "Link 3", "/path3"
-    
+
       %footer
         %p &copy; Company 2014

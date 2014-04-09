@@ -4,8 +4,19 @@
   %span.client=link_to @project.client.name, client_path(@project.client)
   )
 
-Total estimate:
-%strong= time_diff_in_natural_language(@project.total_estimate)
+%p
+  Total time estimate:
+  %strong= time_diff_in_natural_language(@project.total_estimate)
+%p
+  Estimated quote (day rate):
+  %strong
+    =@project.quote_estimate
+    (
+    =@project.rate
+    )
+%p
+  Quote:
+  %strong= @project.quote
 
 %h3 Tasks
 
@@ -22,7 +33,7 @@ Total estimate:
     %tr
       %td.task= task.name
       %td= time_diff_in_natural_language task.minutes_logged.minutes
-      %td= time_diff_in_natural_language task.estimated_minutes.minutes
+      %td= time_diff_in_natural_language (task.estimated_minutes || 0).minutes
       %td= link_to 'Show logs', task_path(task)
       %td= link_to 'Edit', edit_task_path(task)
       %td= link_to 'Destroy', task, :method => :delete, :data => { :confirm => 'Are you sure?' }
