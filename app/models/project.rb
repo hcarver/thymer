@@ -17,7 +17,7 @@ class Project < ActiveRecord::Base
   end
 
   def total_estimate
-    self.tasks.map {|x| x.estimated_minutes}.sum.minutes
+    self.tasks.map {|x| x.estimated_minutes || 0}.sum.minutes
   end
 
   def has_tasks?
