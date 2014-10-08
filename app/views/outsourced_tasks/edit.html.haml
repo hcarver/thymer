@@ -1,6 +1,7 @@
 %h1 Editing outsourced_task
 
-= render 'form'
+=form_for [@project, @outsourced_task] do |f|
+  =render partial: 'form', locals: {f:f
 
 = link_to 'Show', @outsourced_task
 \|
