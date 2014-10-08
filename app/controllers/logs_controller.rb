@@ -28,7 +28,7 @@ class LogsController < ApplicationController
 
     respond_to do |format|
       if @log.save
-        format.html { redirect_to @log, notice: 'Log was successfully created.' }
+        format.html { redirect_to task_path(@log.task), notice: 'Log was successfully created.' }
         format.json { render action: 'show', status: :created, location: @log }
       else
         format.html { render action: 'new' }
