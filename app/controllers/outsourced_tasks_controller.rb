@@ -23,7 +23,7 @@ class OutsourcedTasksController < ApplicationController
 
     respond_to do |format|
       if @outsourced_task.save
-        format.html { redirect_to @outsourced_task, notice: 'Outsourced task was successfully created.' }
+        format.html { redirect_to @outsourced_task.project, notice: 'Outsourced task was successfully created.' }
         format.json { render action: 'show', status: :created, location: @outsourced_task }
       else
         format.html { render action: 'new' }
@@ -37,7 +37,7 @@ class OutsourcedTasksController < ApplicationController
   def update
     respond_to do |format|
       if @outsourced_task.update(outsourced_task_params)
-        format.html { redirect_to @outsourced_task, notice: 'Outsourced task was successfully updated.' }
+        format.html { redirect_to @outsourced_task.project, notice: 'Outsourced task was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
