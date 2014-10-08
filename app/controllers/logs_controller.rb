@@ -42,7 +42,7 @@ class LogsController < ApplicationController
   def update
     respond_to do |format|
       if @log.update(log_params)
-        format.html { redirect_to @log, notice: 'Log was successfully updated.' }
+        format.html { redirect_to task_path(@log.task), notice: 'Log was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
