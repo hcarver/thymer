@@ -17,7 +17,7 @@ class Task < ActiveRecord::Base
     name_changed?
   end
 
-  def incomplete 
-    self.where(completed: false)
+  def self.incomplete 
+    where(completed: false)
   end
 end
