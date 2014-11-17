@@ -1,8 +1,6 @@
 class Task < ActiveRecord::Base
   extend FriendlyId
 
-  scope :incomplete, where(completed: false)
-
   belongs_to :project
   has_many :logs
 
@@ -17,5 +15,9 @@ class Task < ActiveRecord::Base
 
   def should_generate_new_friendly_id?
     name_changed?
+  end
+
+  def incomplete 
+    self.where(completed: false)
   end
 end
